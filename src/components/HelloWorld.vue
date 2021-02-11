@@ -8,16 +8,17 @@
       <h2>Essential Links</h2>
       <h2>Essential Links</h2>
     </dragond>
+    <dragondDevice></dragondDevice>
     <div id="console"></div>
-    {{ msg }}
   </div>
 </template>
 
 <script>
 import dragond from '@/components/dragond'
+import dragondDevice from '@/components/dragondDevice'
 
 export default {
-  components: { dragond },
+  components: { dragond, dragondDevice },
   name: 'HelloWorld',
   data () {
     return {
@@ -26,8 +27,7 @@ export default {
   },
   methods: {
     dragondData: function (data) {
-      console.log(data)
-      this.msg = data
+      this.msg = data;
     }
   }
 }
