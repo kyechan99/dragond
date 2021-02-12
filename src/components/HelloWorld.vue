@@ -8,7 +8,15 @@
       <h2>Essential Links</h2>
       <h2>Essential Links</h2>
     </dragond>
-    <dragondDevice></dragondDevice>
+    <dragondDevice>
+      <dragondMenu>a</dragondMenu>
+      <dragondLine></dragondLine>
+      <dragondMenu>b</dragondMenu>
+      <dragondMenu>c</dragondMenu>
+      <dragondMenu>b</dragondMenu>
+      <dragondLine></dragondLine>
+      <dragondMenu>c</dragondMenu>
+    </dragondDevice>
     <div id="console"></div>
   </div>
 </template>
@@ -16,9 +24,11 @@
 <script>
 import dragond from '@/components/dragond'
 import dragondDevice from '@/components/dragondDevice'
+import dragondMenu from '@/components/dragondMenu'
+import dragondLine from '@/components/dragondLine'
 
 export default {
-  components: { dragond, dragondDevice },
+  components: { dragond, dragondDevice, dragondMenu, dragondLine },
   name: 'HelloWorld',
   data () {
     return {

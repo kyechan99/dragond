@@ -1,11 +1,6 @@
 <template>
-  <div v-if="dragondData.isOpen" id="dragond-device" class="dragond-device" :style="{ top: dragondData.topPos + 'px', left: dragondData.leftPos + 'px' }">
-    <button class="dragond-menu">a</button>
-    <div class="dragond-line"></div>
-    <button class="dragond-menu">b</button>
-    <button class="dragond-menu">c</button>
-    <button class="dragond-menu">c</button>
-    <p>aaaaa</p>
+  <div v-if="dragondData.isOpen" id="dragond-device" ref="dragondDevice" class="dragond-device" :style="{ top: dragondData.topPos + 'px', left: (this.dragondData.leftPos - this.offsetLeft) + 'px' }">
+    <slot></slot>
   </div>
 </template>
 
@@ -13,15 +8,30 @@
 import { dragondData } from '@/components/dragondData.js'
 
 export default {
-  name: 'dragond',
+  name: 'dragondDevice',
   props: {
   },
   data () {
     return {
-      dragondData: dragondData
+      dragondData: dragondData,
+      offsetLeft: 0
     }
   },
+  mounted () {
+    var width = this.$refs.dragondDevice.clientWidth / 2;
+    this.offsetLeft = width;
+
+    window.addEventListener('resize', this.handleResize);
+  },
   methods: {
+    handleResize: function () {
+      if (this.$refs.dragondDevice.getBoundingClientRect().right > window.innerWidth) {
+        this.dragondData.leftPos = window.innerWidth - this.$refs.dragondDevice.getBoundingClientRect().width;
+        this.offsetLeft = 0;
+      }
+    }
+  },
+  computed: {
   }
 }
 
@@ -29,34 +39,17 @@ export default {
 
 <style scoped>
 .dragond-device {
-  /* border: 1px solid red; */
-  border-radius: .5rem;
+  border-radius: .25rem;
   position: absolute;
-  padding: .25rem .5rem;
+  padding: .375rem .5rem;
   background-color: white;
-  box-shadow: 0px 0px 10px 1px rgba(66, 66, 66, 0.25);
+  box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.25);
+  font-size: 1.25rem;
   display: flex;
   align-content: center;
   align-items: center;
 }
 .dragond-device p {
   margin: 0px;
-}
-.dragond-device .dragond-menu {
-  border: 0px;
-  min-width: 1.5rem;
-  min-height: 1.5rem;
-  margin-left: .25rem;
-  margin-right: .25rem;
-  background-color: white;
-  cursor: pointer;
-  outline: none;
-}
-.dragond-line {
-  height: 1rem;
-  width: 0px;
-  margin-left: .25rem;
-  margin-right: .25rem;
-  border-right: 1px solid rgba(0, 0, 0, 0.25);
 }
 </style>
