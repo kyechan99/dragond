@@ -1,5 +1,13 @@
 <template>
-  <div v-if="dragondData.isOpen" id="dragond-device" ref="dragondDevice" class="dragond-device" :style="{ top: dragondData.topPos + 'px', left: (this.dragondData.leftPos - this.offsetLeft) + 'px' }">
+  <div v-if="dragondData.isOpen"
+      id="dragond-device"
+      ref="dragondDevice"
+      class="dragond-device"
+      :style="{ 
+        top: dragondData.topPos + 'px', 
+        left: (this.dragondData.leftPos - this.offsetLeft) + 'px'
+      }"
+  >
     <slot></slot>
   </div>
 </template>
