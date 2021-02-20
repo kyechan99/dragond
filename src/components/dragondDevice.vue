@@ -1,5 +1,5 @@
 <template>
-  <div v-if="dragondData.isOpen"
+  <div v-show="checkShow()"
       id="dragond-device"
       ref="dragondDevice"
       class="dragond-device"
@@ -26,22 +26,55 @@ export default {
   },
   data () {
     return {
+      // Common data (global)
       dragondData: dragondData,
-      offsetLeft: 0
+
+      // $dragondDevice clientWidth
+      width: 0,
+      
+      // Left reference point (How much to space)
+      offsetLeft: 0,
+
+      // Double monitoring data (this.dragondData.isOpen)
+      watchData: false
+    }
+  },
+  watch: {
+    watchData: {
+      handler () {
+        if (this.watchData) {
+          this.handleResize();
+        }
+      }
     }
   },
   mounted () {
-    var width = this.$refs.dragondDevice.clientWidth / 2;
-    this.offsetLeft = width;
+    // Centered on
+    this.width = this.$refs.dragondDevice.clientWidth / 2;
+    this.offsetLeft = this.width;
 
+    // Now done using refs, turn it off
+    this.dragondData.isOpen = false;
+
+    // Detecting window resizing
     window.addEventListener('resize', this.handleResize);
   },
   methods: {
     handleResize: function () {
+      // When dragond leaves the screen, let it in
       if (this.$refs.dragondDevice.getBoundingClientRect().right > window.innerWidth) {
         this.dragondData.leftPos = window.innerWidth - this.$refs.dragondDevice.getBoundingClientRect().width;
         this.offsetLeft = 0;
+      } else if (this.$refs.dragondDevice.getBoundingClientRect().left < 0) {
+        this.dragondData.leftPos = 0;
+        this.offsetLeft = 0;
+      } else {
+        this.offsetLeft = this.width;
       }
+    },
+    checkShow: function () {
+      this.watchData = this.dragondData.isOpen;
+      return this.dragondData.isOpen;
     }
   },
   computed: {

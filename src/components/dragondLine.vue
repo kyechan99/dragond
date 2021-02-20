@@ -4,7 +4,8 @@
     :style="[ 
       mgLeft !== 0.5 ? { marginLeft: mgLeft + 'rem' } : {},
       mgRight !== 0.5 ? { marginRight: mgRight + 'rem'} : {}
-    ]">
+    ]"
+  >
   </div>
 </template>
 

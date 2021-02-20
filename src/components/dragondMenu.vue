@@ -4,7 +4,8 @@
     :style="[ 
       mgLeft !== 0.25 ? { marginLeft: mgLeft + 'rem' } : {},
       mgRight !== 0.25 ? { marginRight: mgRight + 'rem'} : {}
-    ]">
+    ]"
+  >
     <slot></slot>
   </button>
 </template>

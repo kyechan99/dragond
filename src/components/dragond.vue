@@ -1,5 +1,10 @@
 <template>
-  <div class="dragond" id="dragond" @mouseup="mouseUp" @mousedown="mouseDown">
+  <div
+    class="dragond"
+    id="dragond"
+    @mouseup="mouseUp"
+    @mousedown="mouseDown"
+  >
     <slot></slot>
   </div>
 </template>
