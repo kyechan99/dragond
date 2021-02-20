@@ -3,6 +3,7 @@
       id="dragond-device"
       ref="dragondDevice"
       class="dragond-device"
+      :class="{ 'darkmode' : darkmode }"
       :style="{ 
         top: dragondData.topPos + 'px', 
         left: (this.dragondData.leftPos - this.offsetLeft) + 'px'
@@ -18,6 +19,10 @@ import { dragondData } from '@/components/dragondData.js'
 export default {
   name: 'dragondDevice',
   props: {
+    darkmode: {
+      type: Boolean,
+      default: false
+    }
   },
   data () {
     return {
@@ -56,6 +61,17 @@ export default {
   display: flex;
   align-content: center;
   align-items: center;
+}
+.dragond-device.darkmode {
+  background-color: black;
+  color: white;
+}
+.dragond-device.darkmode .dragond-menu {
+  background-color: black;
+  color: white;
+}
+.dragond-device.darkmode .dragond-line {
+  border-right: 1px solid rgba(255, 255, 255, 0.75);
 }
 .dragond-device p {
   margin: 0px;

@@ -1,5 +1,10 @@
 <template>
-  <button class="dragond-menu">
+  <button
+    class="dragond-menu"
+    :style="[ 
+      mgLeft !== 0.25 ? { marginLeft: mgLeft + 'rem' } : {},
+      mgRight !== 0.25 ? { marginRight: mgRight + 'rem'} : {}
+    ]">
     <slot></slot>
   </button>
 </template>
@@ -8,12 +13,14 @@
 export default {
   name: 'dragondMenu',
   props: {
-  },
-  data () {
-    return {
+    mgLeft: {
+      type: Number,
+      default: 0.25
+    },
+    mgRight: {
+      type: Number,
+      default: 0.25
     }
-  },
-  methods: {
   }
 }
 

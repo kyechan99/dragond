@@ -10,14 +10,17 @@
       <h2>Essential Links</h2>
       <h2>Essential Links</h2>
     </dragond>
-    <dragondDevice>
+    <dragondDevice
+      v-bind:darkmode="true">
+      <dragondMenu>d</dragondMenu>
+      <dragondMenu>r</dragondMenu>
       <dragondMenu>a</dragondMenu>
+      <dragondMenu>g</dragondMenu>
       <dragondLine></dragondLine>
-      <dragondMenu>b</dragondMenu>
-      <dragondMenu>c</dragondMenu>
-      <dragondMenu>b</dragondMenu>
+      <dragondMenu>o</dragondMenu>
+      <dragondMenu>n</dragondMenu>
       <dragondLine></dragondLine>
-      <dragondMenu>c</dragondMenu>
+      <dragondMenu>d</dragondMenu>
     </dragondDevice>
   </div>
 </template>
@@ -46,4 +49,7 @@ export default {
 </script>
 
 <style scoped>
+.dragond-device {
+  padding: 2rem 1rem;
+}
 </style>
