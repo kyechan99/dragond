@@ -62,14 +62,18 @@ export default {
   methods: {
     handleResize: function () {
       // When dragond leaves the screen, let it in
-      console.log(this.$refs.dragondDevice.getBoundingClientRect())
-      if (this.$refs.dragondDevice.getBoundingClientRect().right > window.innerWidth && this.$refs.dragondDevice.getBoundingClientRect().left < 0) {
-      } else if (this.$refs.dragondDevice.getBoundingClientRect().right > window.innerWidth) {
-        this.dragondData.leftPos = window.innerWidth - this.$refs.dragondDevice.getBoundingClientRect().width;
-        this.offsetLeft = 0;
-      } else if (this.$refs.dragondDevice.getBoundingClientRect().left < 0) {
+      if (this.$refs.dragondDevice.getBoundingClientRect().right >= window.innerWidth && this.$refs.dragondDevice.getBoundingClientRect().left <= 0) {
         this.dragondData.leftPos = 0;
         this.offsetLeft = 0;
+
+      } else if (this.$refs.dragondDevice.getBoundingClientRect().right >= window.innerWidth) {
+        this.dragondData.leftPos = window.innerWidth - this.width * 2;
+        this.offsetLeft = 0;
+
+      } else if (this.$refs.dragondDevice.getBoundingClientRect().left <= 0) {
+        this.dragondData.leftPos = 0;
+        this.offsetLeft = 0;
+        
       } else {
         this.offsetLeft = this.width;
       }

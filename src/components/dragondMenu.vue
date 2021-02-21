@@ -1,6 +1,7 @@
 <template>
   <button
     class="dragond-menu"
+    v-on="$listeners"
     :style="[ 
       mgLeft !== 0.25 ? { marginLeft: mgLeft + 'rem' } : {},
       mgRight !== 0.25 ? { marginRight: mgRight + 'rem'} : {}

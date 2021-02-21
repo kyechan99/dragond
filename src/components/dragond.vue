@@ -35,6 +35,9 @@ export default {
     mouseDown: function () {
       this.dragondData.selectText = '';
       this.dragondData.isOpen = false;
+
+      window.getSelection().removeAllRanges();
+
       this.$emit('dragondData', this.selectText);
     },
     mouseUp: function () {
@@ -44,8 +47,8 @@ export default {
         var scrollTop = (window.pageYOffset !== undefined) ? window.pageYOffset : (document.documentElement || document.body.parentNode || document.body).scrollTop;
         
         const posX = window.getSelection().getRangeAt(0).getBoundingClientRect().x +
-                     (window.getSelection().getRangeAt(0).getBoundingClientRect().right - window.getSelection().getRangeAt(0).getBoundingClientRect().left) / 2 +
-                     this.offsetX;
+                      (window.getSelection().getRangeAt(0).getBoundingClientRect().width) / 2 +
+                      this.offsetX;
         const posY = window.getSelection().getRangeAt(0).getBoundingClientRect().y +
                       30 +
                       scrollTop +
@@ -56,7 +59,9 @@ export default {
 
         this.dragondData.topPos = posY;
         this.dragondData.leftPos = posX;
+
         this.dragondData.isOpen = true;
+        
       } else {
         this.dragondData.isOpen = false;
       }
