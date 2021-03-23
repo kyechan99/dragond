@@ -47,11 +47,11 @@
 </template>
 
 <script>
-import dragond from '@/components/dragond'
-import dragondDevice from '@/components/dragondDevice'
-import dragondMenu from '@/components/dragondMenu'
-import dragondLine from '@/components/dragondLine'
-import dragondIcon from '@/components/dragondIcon'
+import dragond from '@/dragond'
+import dragondDevice from '@/dragondDevice'
+import dragondMenu from '@/dragondMenu'
+import dragondLine from '@/dragondLine'
+import dragondIcon from '@/dragondIcon'
 
 export default {
   components: { dragond, dragondDevice, dragondMenu, dragondLine, dragondIcon },
