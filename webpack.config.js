@@ -50,33 +50,11 @@ module.exports = [
   
     // For NPM
     merge(commonConfig, {
-        // entry: {
-        //   'dragond': path.resolve(__dirname + '/src/components/dragond.vue'),
-        //   'dragondDevice': path.resolve(__dirname + '/src/components/dragondDevice.vue'),
-        //   'dragondMenu': path.resolve(__dirname + '/src/components/dragondMenu.vue'),
-        //   'dragondLine': path.resolve(__dirname + '/src/components/dragondLine.vue'),
-        //   'dragondIcon': path.resolve(__dirname + '/src/components/dragondIcon.vue')
-        // },
         entry: path.resolve(__dirname + '/src/index.js'),
-        // entry: [
-        //         path.resolve(__dirname + '/src/components/dragond.vue'),
-        //         path.resolve(__dirname + '/src/components/dragondDevice.vue'),
-        //         path.resolve(__dirname + '/src/components/dragondMenu.vue'),
-        //         path.resolve(__dirname + '/src/components/dragondLine.vue'),
-        //         path.resolve(__dirname + '/src/components/dragondIcon.vue')
-        //     ],
-        output: {
           filename: 'dragond.js',
           libraryTarget: 'umd',
           library: 'dragond',
           umdNamedDefine: true
-        },
-        resolve: {
-          extensions: ['*', 'js', 'vue'],
-          alias: {
-            'src': path.resolve(__dirname + '/src'),
-            'components': path.resolve(__dirname + '/src/components')
-          }
         }
     })
 ];

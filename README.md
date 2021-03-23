@@ -1,6 +1,9 @@
 
+<br/>
+<br/>
+
 <p align="center">
-  <img src="./dragond.png" width="250"/>
+  <img src="./dragond.png" width="350"/>
 </p>
 <br/>
 <p align="center">
@@ -18,6 +21,32 @@
 
 
 
+<br/>
+<br/>
+
+
+
+# Install
+## NPM
+```
+npm install dragond --save
+```
+
+## Module
+```js
+import { dragond, dragondDevice, dragondMenu, dragondLine, dragondIcon } from 'dragond';
+
+components: {
+    dragond, dragondDevice, dragondMenu, dragondLine, dragondIcon
+}
+```
+
+<br/>
+<br/>
+
+
+
+# Usage
 
 ## DragondDevice
 Create `dragondDevice` component in the parent component to be used in common.
@@ -38,6 +67,7 @@ If you want to use dark mode, please use as follows.
 ```
 
 
+<br/>
 
 
 ## Dragond
@@ -72,6 +102,7 @@ Adjust the position value to launch the DragondDevice.
 > default value is 0.
 
 
+<br/>
 
 
 ## DragondMenu
@@ -100,6 +131,7 @@ Its value is measured in `rem`.
 > default value is 0.25 rem
 
 
+<br/>
 
 
 ## DragondLine
@@ -128,6 +160,7 @@ Its value is measured in `rem`.
 > default value is 0.5 rem
 
 
+<br/>
 
 
 ## DragondIcon

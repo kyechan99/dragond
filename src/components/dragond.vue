@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import { dragondData } from '../components/dragondData.js'
+import { dragondData } from './dragondData.js'
 
 export default {
   name: 'dragond',

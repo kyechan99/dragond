@@ -6,7 +6,8 @@
       :class="{ 'darkmode' : darkmode }"
       :style="{ 
         top: dragondData.topPos + 'px', 
-        left: (this.dragondData.leftPos - this.offsetLeft) + 'px'
+        left: (this.dragondData.leftPos - this.offsetLeft) + 'px',
+        minWidth: this.width * 2 + 'px'
       }"
   >
     <slot></slot>
@@ -67,6 +68,7 @@ export default {
         this.offsetLeft = 0;
 
       } else if (this.$refs.dragondDevice.getBoundingClientRect().right >= window.innerWidth) {
+        // Paste on the right side
         this.dragondData.leftPos = window.innerWidth - this.width * 2;
         this.offsetLeft = 0;
 
