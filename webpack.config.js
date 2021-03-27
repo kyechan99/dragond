@@ -51,6 +51,7 @@ module.exports = [
     // For NPM
     merge(commonConfig, {
         entry: path.resolve(__dirname + '/src/index.js'),
+        output: {
           filename: 'dragond.js',
           libraryTarget: 'umd',
           library: 'dragond',
