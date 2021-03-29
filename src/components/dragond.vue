@@ -46,23 +46,24 @@ export default {
       if (this.dragondData.selectText.length > 0) {
         var scrollTop = (window.pageYOffset !== undefined) ? window.pageYOffset : (document.documentElement || document.body.parentNode || document.body).scrollTop;
         
-        const posX = window.getSelection().getRangeAt(0).getBoundingClientRect().x +
-                      (window.getSelection().getRangeAt(0).getBoundingClientRect().width) / 2 +
+        let selectionRect = window.getSelection().getRangeAt(0).getBoundingClientRect();
+        const posX = selectionRect.x +
+                      (selectionRect.right - selectionRect.left) / 2 +
                       this.offsetX;
-        const posY = window.getSelection().getRangeAt(0).getBoundingClientRect().y +
-                      30 +
+        const posY = selectionRect.bottom +
+                      16 +
                       scrollTop +
                       this.offsetY;
-
-        // const selection = encodeURIComponent(window.getSelection().toString()).replace(/[!'()*]/g, escape);
-        // const shareUrl = 'http://twitter.com/share?text=' + selection + '&url=https://awik.io';
-
+                      
         this.dragondData.topPos = posY;
         this.dragondData.leftPos = posX;
 
         this.dragondData.isOpen = true;
         
       } else {
+        this.dragondData.topPos = 0;
+        this.dragondData.leftPos = 5;
+
         this.dragondData.isOpen = false;
       }
 

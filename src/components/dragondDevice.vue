@@ -33,7 +33,7 @@ export default {
       // $dragondDevice clientWidth
       width: 0,
       
-      // Left reference point (How much to space)
+      // Left reference point (How much to space, dragondDevice's width / 2)
       offsetLeft: 0,
 
       // Double monitoring data (this.dragondData.isOpen)
@@ -62,23 +62,36 @@ export default {
   },
   methods: {
     handleResize: function () {
-      // When dragond leaves the screen, let it in
-      if (this.$refs.dragondDevice.getBoundingClientRect().right >= window.innerWidth && this.$refs.dragondDevice.getBoundingClientRect().left <= 0) {
-        this.dragondData.leftPos = 0;
-        this.offsetLeft = 0;
+      
+      this.offsetLeft = this.width;
 
-      } else if (this.$refs.dragondDevice.getBoundingClientRect().right >= window.innerWidth) {
+      // Exits both left and right sides of the screen
+      if (this.dragondData.leftPos + this.offsetLeft >= document.body.clientWidth && this.dragondData.leftPos - this.offsetLeft <= 0) {
+        // Paste on the left side
+        this.dragondData.leftPos = 5;
+        this.offsetLeft = 0;
+      }
+
+      // Exit to the right of the screen
+      else if (this.dragondData.leftPos + this.offsetLeft >= document.body.clientWidth) {
         // Paste on the right side
-        this.dragondData.leftPos = window.innerWidth - this.width * 2;
+        this.dragondData.leftPos = document.body.clientWidth - this.width * 2 - 5;
         this.offsetLeft = 0;
+      }
 
-      } else if (this.$refs.dragondDevice.getBoundingClientRect().left <= 0) {
-        this.dragondData.leftPos = 0;
+      // Exit to the left of the screen
+      else if (this.dragondData.leftPos - this.offsetLeft <= 0) {
+        // Paste on the left side
+        this.dragondData.leftPos = 5;
         this.offsetLeft = 0;
-        
-      } else {
+      }
+
+      // Normal without leaving the screen
+      else {
+        console.log('__');
         this.offsetLeft = this.width;
       }
+
     },
     checkShow: function () {
       this.watchData = this.dragondData.isOpen;

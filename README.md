@@ -12,7 +12,8 @@
 </p>
 
 <p align="center">
- <img src="https://img.shields.io/github/repo-size/kyechan99/dragond?style=for-the-badge"/>
+
+ <img src="https://img.shields.io/npm/v/dragond?style=for-the-badge"/>
  <img src="https://img.shields.io/github/license/kyechan99/dragond?style=for-the-badge"/>
  <a href="/">
  	<img src="https://img.shields.io/badge/LIVE-DEMO-%235f5fff?style=for-the-badge"/>
