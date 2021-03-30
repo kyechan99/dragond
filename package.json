@@ -1,7 +1,8 @@
 {
   "name": "dragond",
   "version": "1.1.1",
-  "description": "dragond",
+  "description": "Show helper device after dragging with dragond",
+  "homepage": "https://kyechan99.github.io/dragond/",
   "author": "kyechan99 <kyechan99@gmail.com>",
   "license": "MIT",
   "private": false,
@@ -11,6 +12,22 @@
     "start": "npm run dev",
     "build": "node build/build.js",
     "deploy": "rimraf ./dist && webpack --config ./webpack.config.js"
+  },
+  "keywords": [
+    "drag",
+    "dragond",
+    "vue",
+    "front-end",
+    "framework",
+    "web",
+    "mouse-selection"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kyechan99/dragond.git"
+  },
+  "bugs": {
+    "url": "https://github.com/kyechan99/dragond/issues"
   },
   "dependencies": {
     "vue": "^2.5.2"
