@@ -3,7 +3,7 @@
 <br/>
 
 <p align="center">
-  <img src="./dragond.png" width="350"/>
+  <img src="https://github.com/kyechan99/dragond/raw/master/dragond.png" width="350"/>
 </p>
 <br/>
 <p align="center">
@@ -13,9 +13,11 @@
 
 <p align="center">
 
- <img src="https://img.shields.io/npm/v/dragond?style=for-the-badge"/>
+ <a href="https://www.npmjs.com/package/dragond">
+    <img src="https://img.shields.io/npm/v/dragond?style=for-the-badge"/>
+ </a>
  <img src="https://img.shields.io/github/license/kyechan99/dragond?style=for-the-badge"/>
- <a href="/">
+ <a href="https://kyechan99.github.io/dragond/">
  	<img src="https://img.shields.io/badge/LIVE-DEMO-%235f5fff?style=for-the-badge"/>
  </a>
 </p>

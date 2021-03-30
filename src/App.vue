@@ -16,6 +16,10 @@ export default {
 </script>
 
 <style>
+body {
+  width: 100%;
+  overflow-x: hidden;
+}
 #app {
   color: #2c3e50;
   margin-top: 150px;

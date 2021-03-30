@@ -23,16 +23,19 @@
       
       <br/><br/><br/><br/><br/><br/>
 
-      <h2 class="text-center">Here is Dragond area.</h2>
-      <h4 class="text-center">Drag it anywhere here</h4>
+      <h2 class="text-center">{{ intro[language].introTitle }}</h2>
+      <h4 class="text-center">{{ intro[language].introDesc }}</h4>
+      <div class="mg-tb-2 text-center"><i class="arrow down"></i></div>
       <dragond @dragondData="dragondData"
         v-bind:offsetX="0"
         v-bind:offsetY="0"
         class="dragond-area">
         <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-        <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>
-        <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.</p>
+        <p class="hide-md">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>
+        <p class="hide-lg">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.</p>
       </dragond>
+      <div class="mg-tb-2 text-center"><i class="arrow up"></i></div>
+
       <dragondDevice
         v-bind:darkmode="darkmode">
         <dragondMenu>d r a g</dragondMenu>
@@ -72,8 +75,8 @@
       <br/><br/>
       
       <div class="mg-tb-5 text-center">
-        <button class="btn" v-on:click="language = 'en'">EN</button>
-        <button class="btn" v-on:click="language = 'kr'">KR</button>
+        <button class="btn" :class="{'btn-primary' : (language == 'en')}" v-on:click="language = 'en'">EN</button>
+        <button class="btn" :class="{'btn-primary' : (language == 'kr')}" v-on:click="language = 'kr'">KR</button>
       </div>
       
       <br/><br/>
@@ -198,7 +201,17 @@ export default {
     return {
       msg: '',
       darkmode: false,
-      language: 'kr',
+      language: 'en',
+      intro: {
+        en: {
+          introTitle: "Here is Dragond area.", 
+          introDesc: "Drag it anywhere here.", 
+        },
+        kr: {
+          introTitle: "아래는 Dragond 가 인식되는 공간입니다.", 
+          introDesc: "이곳 아무곳에나 드래그 해보세요.", 
+        }
+      },
       install: {
         en: {
           title: "Install"
@@ -281,7 +294,7 @@ export default {
         },
         noteCode: `body {
   width: 100%;
-  overflow: hidden;
+  overflow-x: hidden;
 }`,
         en: {
           title: "Usage",
@@ -365,6 +378,9 @@ pre {
   padding: 1rem;
   border-radius: .5rem;
 }
+.btn {
+  border: none;
+}
 
 .dragond-device {
   padding: 2rem 1rem;
@@ -390,4 +406,30 @@ pre {
     box-shadow: 0px 0px 25px -5px #b8b8b8;
   }
 }
+.arrow {
+  border: solid #00000036;
+  border-width: 0 5px 5px 0;
+  display: inline-block;
+  padding: 10px;
+  -webkit-animation: arrowAnim 1s ease-in-out infinite alternate;
+  -moz-animation: arrowAnim 1s ease-in-out infinite alternate;
+  animation: arrowAnim 1s ease-in-out infinite alternate;
+}
+.up {
+  transform: rotate(-135deg);
+  -webkit-transform: rotate(-135deg);
+}
+.down {
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+}
+@keyframes arrowAnim {
+  from {
+    border-color: #00000017;
+  }
+  to {
+    border-color: #0000004d;
+  }
+}
+
 </style>
