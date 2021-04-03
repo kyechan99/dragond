@@ -21,7 +21,7 @@ body {
   overflow-x: hidden;
 }
 #app {
-  color: #2c3e50;
+  color: #212529;
   margin-top: 150px;
 }
 </style>

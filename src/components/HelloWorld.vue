@@ -38,14 +38,14 @@
 
       <dragondDevice
         v-bind:darkmode="darkmode">
-        <dragondMenu>d r a g</dragondMenu>
-        <dragondLine></dragondLine>
+        <dragondMenu :fontSize="16" :mgLeft="0.25" :mgRight="0.25">d r a g</dragondMenu>
+        <dragondLine :borderWidth="1" :borderStyle="'solid'" :borderColor="'rgba(0, 0, 0, 0.25)'"></dragondLine>
         <dragondMenu>o n</dragondMenu>
         <dragondLine></dragondLine>
         <dragondMenu>d</dragondMenu>
         <dragondLine></dragondLine>
         <dragondMenu>
-          <dragondIcon v-bind:icon="'search'"></dragondIcon>
+          <dragondIcon v-bind:icon="'search'" :iconSize="16" :viewBox="'0 0 18 18'"></dragondIcon>
         </dragondMenu>
         <dragondMenu>
           <dragondIcon v-bind:icon="'share'"></dragondIcon>
@@ -83,6 +83,7 @@
       <h1 id="install">🏃 {{ install[language].title }}</h1>
       <h2 id="npm">NPM</h2>
       <pre>npm install dragond --save</pre>
+      <br/>
       <h2 id="module">Module</h2>
       <pre>
 import { dragond, dragondDevice, dragondMenu, dragondLine, dragondIcon } from 'dragond';
@@ -95,22 +96,28 @@ components: {
       <br/>
       
       <h1 id="usage">👀 {{ usage[language].title }}</h1>
+
       <h2 id="dragonddevice">&lt;DragondDevice/></h2>
       <img src="https://kyechan99.github.io/assets/img/2021-3-29-dragond/dragondDevice.png"/>
+      <br/>
       <p>{{ usage[language].desc }}</p>
       <pre><code class="lang-html">{{ usage.dragondDevice.code0 }}</code></pre>
+      <br/>
       
       <h3 id="darkmode">@:darkmode</h3>
       <p>{{ usage[language].darkmode }}</p>
       <pre><code class="lang-html">{{ usage.dragondDevice.code1 }}</code></pre>
       <p><br/></p>
 
+      <br/>
       <h2 id="dragond">&lt;Dragond/></h2>
       <p>{{ usage[language].dragondDesc }}</p>
       <pre><code class="lang-html">{{ usage.dragond.code0 }}</code></pre>
+      <br/>
 
       <p>{{ usage[language].dragondDataDesc }}</p>
       <pre><code class="lang-html">{{ usage.dragond.code1 }}</code></pre>
+      <br/>
 
       <h3 id="offset-setting">@:Offset-Setting</h3>
       <p>{{ usage[language].dragondOffsetDesc }}</p>
@@ -118,68 +125,111 @@ components: {
       <blockquote>
         <p>{{ usage[language].dragondOffsetQuote }}</p>
       </blockquote>
-      <p><br/></p>
+      <br/>
+      <br/>
 
       <h2 id="dragondmenu">&lt;DragondMenu/></h2>
       <img src="https://kyechan99.github.io/assets/img/2021-3-29-dragond/dragondMenu.png"/>
+      <br/>
       <p>{{ usage[language].dragondMenuDesc0 }}</p>
       <p>{{ usage[language].dragondMenuDesc1 }}</p>
       <pre><code class="lang-html">{{ usage.dragondMenu.code0 }}</code></pre>
+      <br/>
 
-      <h3 id="margin-setting">@:Margin-Setting</h3>
+      <h3 id="dragondMenu-margin-setting">@:Margin-Setting</h3>
       <p>{{ usage[language].dragondMenuMgDesc0 }}</p>
       <p>{{ usage[language].dragondMenuMgDesc1 }}</p>
       <pre><code class="lang-html">{{ usage.dragondMenu.code1 }}</code></pre>
       <blockquote>
         <p>{{ usage[language].dragondMenuMgQuote }}</p>
       </blockquote>
-      <p><br/></p>
+      <br/>
+
+      <h3 id="dragondMenu-fontsize-setting">@:FontSize-Setting</h3>
+      <p>{{ usage[language].dragondMenuFontSizeDesc0 }}</p>
+      <p>{{ usage[language].dragondMenuFontSizeDesc1 }}</p>
+      <pre><code class="lang-html">{{ usage.dragondMenu.code2 }}</code></pre>
+      <blockquote>
+        <p>{{ usage[language].dragondMenuFontSizeQuote }}</p>
+      </blockquote>
+
+      <br/>
+      <br/>
 
       <h2 id="dragondline">&lt;DragondLine/></h2>
       <img src="https://kyechan99.github.io/assets/img/2021-3-29-dragond/dragondLine.png"/>
+      <br/>
       <p>{{ usage[language].dragondLineDesc }}</p>
       <pre><code class="lang-html">{{ usage.dragondLine.code0 }}</code></pre>
+      <br/>
 
-      <h3 id="margin-setting">@:Margin-Setting</h3>
+      <h3 id="dragondline-margin-setting">@:Margin-Setting</h3>
       <p>{{ usage[language].dragondLineMgDesc0 }}</p>
       <p>{{ usage[language].dragondLineMgDesc1 }}</p>
       <pre><code class="lang-html">{{ usage.dragondLine.code1 }}</code></pre>
       <blockquote>
         <p>{{ usage[language].dragondLineMgQuote }}</p>
       </blockquote>
-      <p><br/></p>
+      <br/>
+
+      <h3 id="dragondline-border-setting">@:Border-Setting</h3>
+      <p>{{ usage[language].dragondLineBorderDesc0 }}</p>
+      <p>{{ usage[language].dragondLineBorderDesc1 }}</p>
+      <pre><code class="lang-html">{{ usage.dragondLine.code2 }}</code></pre>
+
+      <br/>
+      <br/>
 
       <h2 id="dragondicon">&lt;DragondIcon/></h2>
       <p>{{ usage[language].dragondIconDesc0 }}</p>
       <p>{{ usage[language].dragondIconDesc1 }} <a href="http://svgicons.sparkk.fr/">svgicons</a></p>
+      <br/>
 
       <h3 id="search-icon">Search Icon &nbsp; <dragondIcon v-bind:icon="'search'"></dragondIcon></h3>
       <pre><code class="lang-html">{{ usage.dragondIcon.search }}</code></pre>
+      <br/>
 
       <h3 id="share-icon">Share Icon &nbsp; <dragondIcon v-bind:icon="'share'"></dragondIcon></h3>
       <pre><code class="lang-html">{{ usage.dragondIcon.share }}</code></pre>
+      <br/>
 
       <h3 id="copy-icon">Copy Icon &nbsp; <dragondIcon v-bind:icon="'copy'"></dragondIcon></h3>
       <pre><code class="lang-html">{{ usage.dragondIcon.copy }}</code></pre>
+      <br/>
 
       <h3 id="like-icon">Like Icon &nbsp; <dragondIcon v-bind:icon="'like'"></dragondIcon></h3>
       <pre><code class="lang-html">{{ usage.dragondIcon.like }}</code></pre>
+      <br/>
 
       <h3 id="sns-icon">SNS Icon &nbsp;
         <dragondIcon v-bind:icon="'twitter'"></dragondIcon>&nbsp;
         <dragondIcon v-bind:icon="'facebook'"></dragondIcon>
       </h3>
       <pre><code class="lang-html">{{ usage.dragondIcon.sns }}</code></pre>
+      <br/>
 
       <h3 id="browser-icon">Browser Icon &nbsp;<dragondIcon v-bind:icon="'browser'"></dragondIcon></h3>
       <pre><code class="lang-html">{{ usage.dragondIcon.browser }}</code></pre>
+      <br/>
 
       <h3 id="custom">Custom</h3>
+      <p>{{ usage[language].dragondIconCustomDesc0 }}</p>
+      <br/>
+      <h4 id="iconSize">@:Custom-Svg-Path</h4>
+      <p>{{ usage[language].dragondIconCustomDesc1 }}</p>
+      <p>{{ usage[language].dragondIconCustomDesc2 }}</p>
       <pre><code class="lang-html">{{ usage.dragondIcon.custom }}</code></pre>
+      <br/>
+      <h4 id="iconSize">@:iconSize-Setting</h4>
+      <pre><code class="lang-html">{{ usage.dragondIcon.custom2 }}</code></pre>
+      <br/>
+      <h4 id="viewBox">@:viewBox-Setting</h4>
+      <pre><code class="lang-html">{{ usage.dragondIcon.custom3 }}</code></pre>
 
       <br/><br/>
+      <br/>
 
-      <h1 id="note">Note</h1>
+      <h1 id="note">📝 {{ usage[language].noteTitle }}</h1>
       <p>{{ usage[language].noteDesc0 }}</p>
       <p>{{ usage[language].noteDesc1 }}</p>
       <pre><code class="lang-html">{{ usage.noteCode }}</code></pre>
@@ -253,6 +303,10 @@ export default {
     v-bind:mgLeft="0.25"
     v-bind:mgRight="0.25">
     ...
+</dragondMenu>`,
+          code2: `<dragondMenu
+    v-bind:fontSize="16">
+    ...
 </dragondMenu>`
         },
         dragondLine: {
@@ -264,6 +318,11 @@ export default {
           code1: `<dragondLine
     v-bind:mgLeft="0.5"
     v-bind:mgRight="0.5">
+</dragondLine>`,
+          code2: `<dragondLine
+    :borderWidth="1"
+    :borderStyle="'solid'"
+    :borderColor="'rgba(0, 0, 0, 0.25)'">
 </dragondLine>`
         },
         dragondIcon:  {
@@ -291,6 +350,8 @@ export default {
           custom: `<dragondMenu>
     <dragondIcon v-bind:icon="'custom'" :d="'....'"></dragondIcon>
 </dragondMenu>`,
+          custom2: `<dragondIcon v-bind:icon="'...'" :iconSize="16">`,
+          custom3: `<dragondIcon v-bind:icon="'...'" :viewBox="'0 0 18 18'">`,
         },
         noteCode: `body {
   width: 100%;
@@ -309,12 +370,20 @@ export default {
           dragondMenuMgDesc0: "If you want to change the margin value, write as follows.",
           dragondMenuMgDesc1: "Its value is measured in rem.",
           dragondMenuMgQuote: "default value is 0.25 rem",
+          dragondMenuFontSizeDesc0: "If you want to change the font-size value, write as follows.",
+          dragondMenuFontSizeDesc1: "Its value is measured in rem.",
+          dragondMenuFontSizeQuote: "default value is 16 px",
           dragondLineDesc: "Use this component if you want to add lines between DragondMenu.",
           dragondLineMgDesc0: "If you want to change the margin value, write as follows.",
           dragondLineMgDesc1: "Its value is measured in rem.",
           dragondLineMgQuote: "default value is 0.5 rem",
+          dragondLineBorderDesc0: "If you want to change the border value, write as follows.",
+          dragondLineBorderDesc1: "Border-Width value is measured in px. Default is 1px",
           dragondIconDesc0: "Use this component if you want to use the built-in icons.",
           dragondIconDesc1: "Sources of built-in icons :",
+          dragondIconCustomDesc0: "You can customize the icon design as follows :",
+          dragondIconCustomDesc1: "If you want to enter the svg path directly, enter it as follows.",
+          dragondIconCustomDesc2: "Enter 'custom' in :icon and svg path in :d.",
           noteTitle: "Note",
           noteDesc0: "If you use too many elements in the dragondDevice can be solved Screen overflow.",
           noteDesc1: "It can be solved as follows, but this is not an absolute workaround."
@@ -332,12 +401,20 @@ export default {
           dragondMenuMgDesc0: "margin 값을 변경하고 싶다면 다음과 같이 사용해주세요.",
           dragondMenuMgDesc1: "데이터 단위는 rem 입니다.",
           dragondMenuMgQuote: "기본값은 0.25 rem 입니다.",
+          dragondMenuFontSizeDesc0: "font-size 값을 변경하고 싶다면 다음과 같이 사용해주세요.",
+          dragondMenuFontSizeDesc1: "데이터 단위는 px 입니다.",
+          dragondMenuFontSizeQuote: "기본값은 16 px 입니다.",
           dragondLineDesc: "DragondMenu 사이에 선을 긋고자 한다면 이 컴포넌트를 사용해주세요.",
           dragondLineMgDesc0: "margin 값을 변경하고 싶다면 다음과 같이 사용해주세요.",
           dragondLineMgDesc1: "데이터 단위는 rem 입니다.",
           dragondLineMgQuote: "기본값은 0.5 rem 입니다.",
+          dragondLineBorderDesc0: "border 속성을 변경하고자 한다면 다음과 같이 사용해주세요.",
+          dragondLineBorderDesc1: "border-width 는 px 단위이고 기본값은 1px 입니다.",
           dragondIconDesc0: "내장된 아이콘을 사용하고자 한다면 이 컴포넌트를 사용해주세요.",
           dragondIconDesc1: "내장된 아이콘들의 출처 :",
+          dragondIconCustomDesc0: "아이콘 디자인을 다음과 같이 커스터마이징 할 수 있습니다.",
+          dragondIconCustomDesc1: "직접 svg path 를 입력하고자 한다면 다음과 같이 입력해주세요.",
+          dragondIconCustomDesc2: ":icon 에 'custom' 을 입력하고, :d 에 svg path 를 입력하면 됩니다.",
           noteTitle: "참고사항",
           noteDesc0: "dragondDevice에 너무 많은 요소들을 사용하면 화면 overflow 현상이 일어날 수 있습니다",
           noteDesc1: "다음과 같이 해결될 수 있지만 절대적인 해결 방법은 아닙니다."
@@ -364,19 +441,32 @@ h1 {
 h2 {
   font-weight: 700;
   font-size: 1.75rem;
+  color: #45326b;
 }
 h3 {
   margin-top: 1rem;
-  font-size: 1.25em;
+  font-size: 1.25rem;
+}
+h4 {
+  font-size: 1rem;
 }
 p {
   /* font-weight: 500; */
   margin-bottom: .5rem;
+  color: #212529a6;
 }
 pre {
-  background-color: #f1f1f1;
+  background-color: #f7edff;
   padding: 1rem;
   border-radius: .5rem;
+  overflow-x: auto;
+}
+img {
+  max-width: 100%;
+}
+blockquote {
+  border-left: 3px solid #b897ff66;
+  padding-left: 1rem;
 }
 .btn {
   border: none;
@@ -397,8 +487,8 @@ pre {
 @keyframes blinking {
   from {
     background-color: #c5a4d84d;
-    -webkit-box-shadow: 0px 0px 15px 0px #C5A4D8; 
-    box-shadow: 0px 0px 15px 0px #C5A4D8;
+    -webkit-box-shadow: 0px 0px 15px 15px #d1bbddc9;
+    box-shadow: 0px 0px 15px 15px #d1bbddc9;
   }
   to {
     background-color: #b897ff71;

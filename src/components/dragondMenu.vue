@@ -4,7 +4,8 @@
     v-on="$listeners"
     :style="[ 
       mgLeft !== 0.25 ? { marginLeft: mgLeft + 'rem' } : {},
-      mgRight !== 0.25 ? { marginRight: mgRight + 'rem'} : {}
+      mgRight !== 0.25 ? { marginRight: mgRight + 'rem'} : {},
+      fontSize !== 16 ? { fontSize: fontSize + 'px'} : {}
     ]"
   >
     <slot></slot>
@@ -22,6 +23,10 @@ export default {
     mgRight: {
       type: Number,
       default: 0.25
+    },
+    fontSize: {
+      type: Number,
+      default: 16
     }
   }
 }
